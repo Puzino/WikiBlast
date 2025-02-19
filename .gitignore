@@ -11,7 +11,7 @@ __pycache__/
 database.csv
 
 staticfiles/
-
+TODO.md
 # Distribution / packaging
 .Python
 build/

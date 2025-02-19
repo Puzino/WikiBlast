@@ -37,11 +37,6 @@ BOT_TOKEN=your_telegram_bot_token
 CHAT_ID=your_chat_id
 ```
 
-### 4️⃣ Create a `database.csv` file for save your pages
-```bash
-touch database.csv
-```
-
 ---
 
 ## 🚀 Running the bot

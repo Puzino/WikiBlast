@@ -11,15 +11,14 @@ CSV_QUOTECHAR = '|'
 CSV_NEWLINE = ''
 
 
-def create_database(database_path: str) -> bool:
+def create_database(database_path: str) -> None:
     """
-    Check exists database file.
+    Check exists/create a database file.
     :param database_path:
-    :return bool:
+    :return: None
     """
     if not os.path.exists(database_path):
-        return True
-    return False
+        open(DATABASE_PATH, 'a').close()
 
 
 def write_page_database(name: str) -> bool:
@@ -45,9 +44,7 @@ def check_page_database(name: str) -> bool:
     :param name:
     :return: bool
     """
-    if create_database(DATABASE_PATH):  # Create database file if not exists
-        open(DATABASE_PATH, 'a').close()
-
+    create_database(DATABASE_PATH)  # Create database file if not exists
     with open(DATABASE_PATH, newline=CSV_NEWLINE) as csvfile:  # Check info
         reader = csv.reader(csvfile, delimiter=CSV_DELIMETER, quotechar=CSV_QUOTECHAR)
         data = [x[0] for x in reader]
