@@ -3,19 +3,18 @@ from aiogram.filters import CommandStart
 from aiogram.types import Message
 
 from keyboards.kb import main_kb, ease_link_kb
-from wikipedia_func import random_wiki_page
+from wiki.wikipedia_func import CATEGORIES, text_wiki_formatter
 
 start_router = Router()
 
 
 @start_router.message(CommandStart())
 async def cmd_start(message: Message):
-    await message.answer('Привет!', reply_markup=main_kb())
+    text = f'Бот для отправки случайной статьи по темам: <b>{"\n".join(CATEGORIES)}</b>'
+    await message.answer(text, reply_markup=main_kb())
 
 
 @start_router.message(F.text == '📖 Случайная статья')
 async def cmd_start_2(message: Message):
-    title, summary, url, category = random_wiki_page()
-    category = category.split(':')[1]
-    text = f"""<b>Название: {title}\nКатегория: {category}</b>\n\n{summary}"""
+    text, url = text_wiki_formatter()
     await message.answer(text, reply_markup=ease_link_kb(url))
