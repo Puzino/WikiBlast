@@ -10,7 +10,7 @@ start_router = Router()
 
 @start_router.message(CommandStart())
 async def cmd_start(message: Message):
-    text = f"Бот для отправки случайной статьи по темам: <b>{'\n'.join(CATEGORIES)}</b>"
+    text = "Бот для отправки случайной статьи по темам: <b>%s</b>" % '\n'.join(CATEGORIES)
     await message.answer(text, reply_markup=main_kb())
 
 
