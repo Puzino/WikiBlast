@@ -32,9 +32,14 @@ pip install -r requirements.txt
 ### 3️⃣ Create a `.env` file for configuration
 Create a `.env` file and add your bot token and chat ID:
 
-```
+```bash
 BOT_TOKEN=your_telegram_bot_token
 CHAT_ID=your_chat_id
+```
+
+### 4️⃣ Create a `database.csv` file for save your pages
+```bash
+touch database.csv
 ```
 
 ---
